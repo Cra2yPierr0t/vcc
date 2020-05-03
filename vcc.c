@@ -17,4 +17,9 @@ int main(int argc, char *argv[]){
     for(int j = 0;j < i; j++){
         sema(node[j]);
     }
+
+    for(int j = 0;j < i; j++){
+        gen(node[j]);
+    }
+    return 0;
 }
