@@ -4,6 +4,7 @@ typedef enum{
     ND_NUM,
     ND_INT_VAR,
     ND_DECL,
+    ND_RETURN,
     ND_ASSIGN
 } NodeKind;
 
@@ -13,6 +14,7 @@ struct Node {
     Node *lhs;
     Node *rhs;
     Node *stmts;
+    Node *expr;
     int val;
     char *str;
     int varindex;

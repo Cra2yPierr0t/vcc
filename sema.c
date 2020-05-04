@@ -24,10 +24,12 @@ void sema(Node *node){
     setHead();
     if(node->kind == ND_INT_VAR){
         node->varindex = search_symbol_table(node->str);
-        printf("%s's index is %d.\n", node->str, node->varindex);
+        //printf("%s's index is %d.\n", node->str, node->varindex);
+    } else if(node->kind == ND_RETURN){
+        sema(node->expr);
     } else if((node->kind != ND_DECL) && (node->kind != ND_NUM)){
-        sema(node->rhs);
         sema(node->lhs);
+        sema(node->rhs);
     }
     return;
 }
