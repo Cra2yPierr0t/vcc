@@ -21,6 +21,12 @@ Node *new_node_var(char *var_name, int len){
     node->kind = ND_INT_VAR;
     return node;
 }
+Node *new_node_return(Node *expr){
+    Node *node = (Node *)malloc(sizeof(Node));
+    node->expr = expr;
+    node->kind = ND_RETURN;
+    return node;
+}
 Node *new_node(NodeKind kind, Node *lhs, Node *rhs){
     Node *node = (Node *)malloc(sizeof(Node));
     node->kind = kind;
@@ -46,8 +52,7 @@ Node *stmt(){
         } else {
             consume_keyword(KW_RETURN);
             //printf("<keyword> return </keyword>\n");
-            node->kind = ND_RETURN;
-            node->expr = expr();
+            node = new_node_return(expr());
         }
     }
     //printf("<symbol> ; </symbol>\n");

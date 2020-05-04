@@ -24,5 +24,6 @@ Node *new_node_num(int);
 Node *new_node_var(char *, int);
 Node *new_node_decl(char *, int);
 Node *new_node(NodeKind, Node *, Node *);
+Node *new_node_return(Node *);
 Node *stmt(void);
 Node *expr(void);
